@@ -33,4 +33,18 @@ describe 'Test restaurant_bill' do
 
     bill.item_total.must_equal 11.63
   end
+
+  it "Adds tip to total bill" do
+    bill = RestaurantBill.new
+    bill.order_item("Waffles", 5)
+    bill.item_total
+    bill.add_tip(2)
+
+    bill.total.must_equal 7.29
+  end
 end
+
+
+# What are other tests that could be added?
+  # - Check that tip wouldn't take a negative sum
+  # -
